@@ -1,30 +1,38 @@
+# Импорт библиотеки и функций для поиска Exception
 from openpyxl import workbook
 import openpyxl
-
-wb = openpyxl.load_workbook('данные для задачки.xlsx')
 from exception1 import Exp1
 from exception2 import Exp2
 from exception3 import Exp3
 from exception4 import Exp4
 from exception5 import Exp5
 from exception6 import Exp6
+# Открываю таблицу
+wb = openpyxl.load_workbook('данные для задачки.xlsx')
+# Открываю Листы для работы с файломи
 ws2 = wb['info']
 ws1 = wb['Лист3']
 n = ws1.max_row+1
 m = ws2.max_row+1
-i = 1
+# Запускаю цикл, пробегаюсь по таблице
 for h2 in range(1,m):
     for h1 in range(1,n):
+        # проверка 1 столбца на наличие Исключения 
         a1 = ws1.cell(row=h1, column=1).value
         b1 = Exp1(a1)
+        # проверка 2 столбца на наличие Исключения 
         a2 = ws1.cell(row=h1, column=2).value
         b2 = Exp2(a2)
+        # проверка 3 столбца на наличие Исключения 
         a3 = ws1.cell(row=h1, column=3).value
         b3 = Exp3(a3)
+        # проверка 4 столбца на наличие Исключения 
         a4 = ws1.cell(row=h1, column=4).value
         b4 = Exp4(a4)
+        # проверка 5 столбца на наличие Исключения 
         a5 = ws1.cell(row=h1, column=5).value
         b5 = Exp5(a5)
+        # проверка 6 столбца на наличие Исключения 
         a6 = ws1.cell(row=h1, column=6).value
         b6 = Exp6(a6)
         # 1 ячейка
@@ -44,5 +52,5 @@ for h2 in range(1,m):
         if ws2.cell(row=h2, column=7).value == None:
             #Строка не совпала
             ws2.cell(row=h2, column=7).value = 0
-
+# Сохраняю файл
 wb.save('данные для задачки.xlsx')
